@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Error{% endblock %}
+{% block content %}
+<div class="card">
+<h1>Request could not be completed</h1>
+<p>{{ message }}</p>
+<a class="btn" href="{{ url_for('index') }}">Return home</a>
+</div>
+{% endblock %}

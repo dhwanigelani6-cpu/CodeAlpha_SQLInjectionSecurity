@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Reveal private note{% endblock %}
+{% block content %}
+<div class="card">
+<h1>Protected data access</h1>
+<p>Enter the capability code configured by the application owner. Do not share this code or place it in source control.</p>
+<form method="post">
+  <label>Capability code</label>
+  <input name="capability_code" type="password" required autocomplete="off">
+  <button type="submit">Authorize and decrypt</button>
+</form>
+{% if revealed is not none %}
+  <h2>Decrypted private note</h2>
+  <p>{{ revealed }}</p>
+{% endif %}
+</div>
+{% endblock %}

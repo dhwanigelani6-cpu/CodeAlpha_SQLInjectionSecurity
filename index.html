@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Home — SQL Security Demo{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>SQL Injection Detection &amp; Data Leak Prevention</h1>
+  <p>This project demonstrates secure database access, encrypted private data, capability-code authorization, and security event logging.</p>
+  <ul>
+    <li>Parameterized SQL queries</li>
+    <li>Password hashing</li>
+    <li>AES-256-GCM encryption for a private note</li>
+    <li>Capability-code check before decrypting data</li>
+    <li>Security event records</li>
+  </ul>
+  <a class="btn" href="{{ url_for('register') }}">Create demo account</a>
+</div>
+{% endblock %}
