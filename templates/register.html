@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+{% block content %}
+<div class="card">
+<h1>Create account</h1>
+<form method="post">
+  <label>Username</label>
+  <input name="username" minlength="3" maxlength="40" required autocomplete="username">
+  <label>Password (minimum 12 characters)</label>
+  <input name="password" type="password" minlength="12" required autocomplete="new-password">
+  <label>Private note (encrypted before storage)</label>
+  <textarea name="private_note" maxlength="1000" rows="3" placeholder="Enter sample data only"></textarea>
+  <button type="submit">Register</button>
+</form>
+</div>
+{% endblock %}
