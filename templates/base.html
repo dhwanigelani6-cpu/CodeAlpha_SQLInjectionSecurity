@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}SQL Security Demo{% endblock %}</title>
+  <style>
+    body{font-family:Arial,sans-serif;background:#f4f7fb;color:#182230;margin:0}
+    nav{background:#14213d;padding:14px 5%;display:flex;gap:16px;flex-wrap:wrap}
+    nav a{color:white;text-decoration:none}
+    main{max-width:780px;margin:32px auto;padding:0 16px}
+    .card{background:white;padding:24px;border-radius:12px;box-shadow:0 4px 20px #0000000d;margin-bottom:18px}
+    input,textarea{width:100%;box-sizing:border-box;padding:11px;margin:6px 0 14px;border:1px solid #c8d0dc;border-radius:7px}
+    button,.btn{background:#1d4ed8;color:white;padding:10px 15px;border:0;border-radius:7px;text-decoration:none;cursor:pointer}
+    .flash{padding:10px;border-radius:7px;margin:8px 0}.success{background:#dcfce7}.danger{background:#fee2e2}.warning{background:#fef3c7}
+    small,.muted{color:#5c6677}.event{border-bottom:1px solid #e5e7eb;padding:10px 0;overflow-wrap:anywhere}
+    code{overflow-wrap:anywhere}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="{{ url_for('index') }}">Home</a>
+  <a href="{{ url_for('register') }}">Register</a>
+  <a href="{{ url_for('login') }}">Login</a>
+  <a href="{{ url_for('dashboard') }}">Dashboard</a>
+  <a href="{{ url_for('reveal_note') }}">Reveal private note</a>
+  <a href="{{ url_for('security_events') }}">Security events</a>
+  <a href="{{ url_for('logout') }}">Logout</a>
+</nav>
+<main>
+  {% for category, message in get_flashed_messages(with_categories=true) %}
+    <div class="flash {{ category }}">{{ message }}</div>
+  {% endfor %}
+  {% block content %}{% endblock %}
+  <p class="muted"><small>Educational security demo. Use only with systems and data you are authorized to test.</small></p>
+</main>
+</body>
+</html>
